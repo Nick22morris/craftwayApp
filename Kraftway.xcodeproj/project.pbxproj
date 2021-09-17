@@ -13,6 +13,7 @@
 		BBD31DA126F531CA002EBF19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD31DA026F531CA002EBF19 /* Assets.xcassets */; };
 		BBD31DA426F531CA002EBF19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD31DA326F531CA002EBF19 /* Preview Assets.xcassets */; };
 		BBD31DA726F531CA002EBF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD31DA526F531CA002EBF19 /* LaunchScreen.storyboard */; };
+		BBD31DB226F53271002EBF19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD31DB126F53271002EBF19 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BBD31DA326F531CA002EBF19 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BBD31DA626F531CA002EBF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBD31DA826F531CA002EBF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBD31DB126F53271002EBF19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +58,9 @@
 		BBD31D9926F531C9002EBF19 /* Kraftway */ = {
 			isa = PBXGroup;
 			children = (
-				BBD31D9A26F531C9002EBF19 /* AppDelegate.swift */,
-				BBD31D9C26F531C9002EBF19 /* SceneDelegate.swift */,
-				BBD31D9E26F531C9002EBF19 /* ContentView.swift */,
+				BBD31DAE26F531E8002EBF19 /* App Manager */,
+				BBD31DAF26F531F8002EBF19 /* Runner */,
+				BBD31DB026F53202002EBF19 /* Views */,
 				BBD31DA026F531CA002EBF19 /* Assets.xcassets */,
 				BBD31DA526F531CA002EBF19 /* LaunchScreen.storyboard */,
 				BBD31DA826F531CA002EBF19 /* Info.plist */,
@@ -73,6 +75,31 @@
 				BBD31DA326F531CA002EBF19 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BBD31DAE26F531E8002EBF19 /* App Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BBD31D9A26F531C9002EBF19 /* AppDelegate.swift */,
+				BBD31D9C26F531C9002EBF19 /* SceneDelegate.swift */,
+			);
+			path = "App Manager";
+			sourceTree = "<group>";
+		};
+		BBD31DAF26F531F8002EBF19 /* Runner */ = {
+			isa = PBXGroup;
+			children = (
+				BBD31D9E26F531C9002EBF19 /* ContentView.swift */,
+			);
+			path = Runner;
+			sourceTree = "<group>";
+		};
+		BBD31DB026F53202002EBF19 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BBD31DB126F53271002EBF19 /* HomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBD31D9B26F531C9002EBF19 /* AppDelegate.swift in Sources */,
+				BBD31DB226F53271002EBF19 /* HomeView.swift in Sources */,
 				BBD31D9D26F531C9002EBF19 /* SceneDelegate.swift in Sources */,
 				BBD31D9F26F531C9002EBF19 /* ContentView.swift in Sources */,
 			);
