@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB07A5DD26F64CDB00293362 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07A5DC26F64CDB00293362 /* MenuModel.swift */; };
+		BBCF110C26F58C4700BC28CC /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF110B26F58C4700BC28CC /* MenuView.swift */; };
 		BBD31D9B26F531C9002EBF19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD31D9A26F531C9002EBF19 /* AppDelegate.swift */; };
 		BBD31D9D26F531C9002EBF19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD31D9C26F531C9002EBF19 /* SceneDelegate.swift */; };
 		BBD31D9F26F531C9002EBF19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD31D9E26F531C9002EBF19 /* ContentView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB07A5DC26F64CDB00293362 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		BBCF110B26F58C4700BC28CC /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		BBD31D9726F531C9002EBF19 /* Kraftway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kraftway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD31D9A26F531C9002EBF19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD31D9C26F531C9002EBF19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB07A5DE26F64CE000293362 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB07A5DC26F64CDB00293362 /* MenuModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BBD31D8E26F531C9002EBF19 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +73,7 @@
 				BBD31DAE26F531E8002EBF19 /* App Manager */,
 				BBD31DAF26F531F8002EBF19 /* Runner */,
 				BBD31DB026F53202002EBF19 /* Views */,
+				BB07A5DE26F64CE000293362 /* Models */,
 				BBD31DA026F531CA002EBF19 /* Assets.xcassets */,
 				BBD31DA526F531CA002EBF19 /* LaunchScreen.storyboard */,
 				BBD31DA826F531CA002EBF19 /* Info.plist */,
@@ -98,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				BBD31DB126F53271002EBF19 /* HomeView.swift */,
+				BBCF110B26F58C4700BC28CC /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,7 +186,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBCF110C26F58C4700BC28CC /* MenuView.swift in Sources */,
 				BBD31D9B26F531C9002EBF19 /* AppDelegate.swift in Sources */,
+				BB07A5DD26F64CDB00293362 /* MenuModel.swift in Sources */,
 				BBD31DB226F53271002EBF19 /* HomeView.swift in Sources */,
 				BBD31D9D26F531C9002EBF19 /* SceneDelegate.swift in Sources */,
 				BBD31D9F26F531C9002EBF19 /* ContentView.swift in Sources */,
