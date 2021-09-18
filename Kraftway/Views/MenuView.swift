@@ -30,7 +30,7 @@ struct MenuView: View {
                     ScrollView (.vertical, showsIndicators: false){
                         VStack(alignment: .leading, spacing: 80) {
                             ForEach(starters, id: \.name) { item in
-                                FootDisplay(name: item.name, price: item.price, image: item.image)
+                                dualFoodDisplay(name: item.name, price: item.price, image: item.image)
                             }
                         }
                         
@@ -121,5 +121,35 @@ struct RoundedCornersShape: Shape {
                                 byRoundingCorners: corners,
                                 cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
+    }
+}
+struct dualFoodDisplay: View {
+    let name: String
+    let price: String
+    let image: String
+    var body: some View {
+        
+        HStack {
+            Image(image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 140, height: 140, alignment: .center)
+                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                .overlay(RoundedRectangle(cornerRadius: 25.0)
+                            .stroke(Color.white, lineWidth: 4))
+                .shadow(radius: 7)
+                .padding()
+            ZStack {
+                RoundedRectangle(cornerRadius: 25.0)
+                    .frame(width: 150, height: 100, alignment: .center)
+                    .foregroundColor(.white)
+                VStack {
+                    Text(name)
+                        .bold()
+                    Text(price)
+                }
+            }
+            .padding()
+        }
     }
 }
