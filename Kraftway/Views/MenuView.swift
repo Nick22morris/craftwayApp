@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-
 struct MenuView: View {
+    @ObservedObject var omni = MenuFoods()
     @State var input = "starters"
-    @State var inputCollection = starters
     @State var count = 2
+    //["Starters", "Soups and Salads", "Sandwiches","Entreés","Sides"]
     var body: some View {
         NavigationView {
             ZStack {
@@ -20,27 +20,54 @@ struct MenuView: View {
                 VStack {
                     ScrollView(.horizontal) {
                         HStack {
-                            selectButton(text: "Starters")
-                            selectButton(text: "Soups and Salads")
-                            selectButton(text: "Sandwiches")
-                            selectButton(text: "Entreés")
-                            selectButton(text: "Sides")
+                            ForEach(things, id: \.name) { thing in
+                                Button(action: {
+                                    omni.changeQ(val: thing.val)
+                                }, label: {
+                                    ZStack {
+                                        Text(thing.name)
+                                            .foregroundColor(.black)
+                                            .bold()
+                                            .font(.headline)
+                                    }
+                                })
+                                    .padding()
+                            }
                         }
                     }
                     ScrollView (.vertical, showsIndicators: false){
                         VStack(alignment: .leading, spacing: 80) {
-                            ForEach(starters, id: \.name) { item in
-                                dualFoodDisplay(name: item.name, price: item.price, image: item.image)
+                            ForEach(omni.q, id: \.name) { item in
+                                fancy(item: item)
                             }
                         }
                         
                     }
-                    Spacer()
+                    //Spacer()
                 }
             }
             .navigationTitle("Menu")
         }
     }
+    //    struct selectButton: View {
+    //        let text: String
+    //        let t : [foodDataType]
+    //        var body: some View {
+    //            Button(action: {
+    //                omni.changeQ(val: t)
+    //            }, label: {
+    //                ZStack {
+    //                    Text(text)
+    //                        .foregroundColor(.white)
+    //                        .bold()
+    //                        .font(.headline)
+    //                        //.background(Color.blue)
+    //                        //.clipShape(Capsule())
+    //                }
+    //            })
+    //            .padding()
+    //        }
+    //    }
 }
 
 struct MenuView_Previews: PreviewProvider {
@@ -49,22 +76,7 @@ struct MenuView_Previews: PreviewProvider {
     }
 }
 
-struct selectButton: View {
-    let text: String
-    var body: some View {
-        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-            ZStack {
-                Text(text)
-                    .foregroundColor(.white)
-                    .bold()
-                    .font(.headline)
-                    //.background(Color.blue)
-                    //.clipShape(Capsule())
-            }
-        })
-        .padding()
-    }
-}
+
 
 struct FootDisplay: View {
     let name: String
@@ -91,7 +103,7 @@ struct FootDisplay: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 160, height: 100, alignment: .center)
                 .clipShape(RoundedCornersShape(corners: [.topLeft, .topRight], radius: 25))
-                //.clipShape(RoundedRectangle(cornerRadius: 25.0))
+            //.clipShape(RoundedRectangle(cornerRadius: 25.0))
             
             
         }
@@ -100,16 +112,16 @@ struct FootDisplay: View {
 }
 struct BottomClipper: Shape {
     let bottom: CGFloat
-
+    
     func path(in rect: CGRect) -> Path {
-       RoundedRectangle(cornerRadius: 25.0).path(in: CGRect(x: 0, y: rect.size.height - bottom, width: rect.size.width, height: bottom))
+        RoundedRectangle(cornerRadius: 25.0).path(in: CGRect(x: 0, y: rect.size.height - bottom, width: rect.size.width, height: bottom))
     }
 }
 struct TopClipper: Shape {
     let top: CGFloat
-
+    
     func path(in rect: CGRect) -> Path {
-       RoundedRectangle(cornerRadius: 25.0).path(in: CGRect(x: 0, y: rect.size.height - top, width: rect.size.width, height: top))
+        RoundedRectangle(cornerRadius: 25.0).path(in: CGRect(x: 0, y: rect.size.height - top, width: rect.size.width, height: top))
     }
 }
 struct RoundedCornersShape: Shape {
@@ -141,15 +153,40 @@ struct dualFoodDisplay: View {
                 .padding()
             ZStack {
                 RoundedRectangle(cornerRadius: 25.0)
-                    .frame(width: 150, height: 100, alignment: .center)
+                    .frame(width: 170, height: 100, alignment: .center)
                     .foregroundColor(.white)
                 VStack {
                     Text(name)
                         .bold()
+                        .foregroundColor(.black)
                     Text(price)
+                        .foregroundColor(.black)
                 }
             }
             .padding()
+        }
+    }
+}
+struct fancy: View {
+    let item: foodDataType
+    let wi = 350.0
+    var body: some View {
+        VStack {
+            Text(item.name)
+                .foregroundColor(.black)
+                .bold()
+                .multilineTextAlignment(.center)
+                .frame(width: wi)
+            Text(item.description)
+                .italic()
+                .foregroundColor(.black)
+                .multilineTextAlignment(.center)
+                .padding(.leading)
+                .frame(width: wi)
+            Text(item.price)
+            //.padding()
+                .foregroundColor(.black)
+                .frame(width : 100)
         }
     }
 }
