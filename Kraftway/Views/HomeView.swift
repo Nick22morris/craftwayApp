@@ -20,6 +20,7 @@ struct HomeView: View {
             bottomPic(image: "people", top: "PROFESSIONALLY CASUAL", middle: "Good Food.\nGood Friends.", bottom: "A favorite spot with the locals, expect a lively, bustling atmosphere each evening. Local artwork, open kitchen and a welcoming staff greet you at the door. It’s our craveable food that keeps our regulars coming back for more.")
             sidePic(minor: "CRAFT COCKTAILS", title: "Take a Sip", bottom: "Built-by-hand cocktails with the finest ingredients curated by our in house drink experts.", image: "cock")
             bottomPic(image: "tuna", top: "FOOD IS LOVE", middle: "Come Hungry.\nLeave Happy.", bottom: "Start with high-quality ingredients and focus on letting those ingredients shine. We want to share our passion and welcome you to our home to enjoy warm hospitality and amazing food. From simple but always satisfying roasted tomato soup to a hearty ribeye, ")
+            visit()
         }
     }
 }
@@ -107,6 +108,44 @@ struct bottomPic: View {
                     .multilineTextAlignment(.center)
                     .padding(30)
             }
+        }
+    }
+}
+struct visit: View {
+    var body: some View {
+        VStack {
+            Rectangle()
+                .frame(height: 30, alignment: .center)
+                .opacity(0)
+            Link(destination: URL(string: "tel:9724030555")!) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .frame(width: 300, height: 50, alignment: .center)
+                        .foregroundColor(.yellow)
+                    HStack {
+                        Image(systemName: "phone.fill")
+                            .foregroundColor(.primary)
+                        Text("(972) 403-0555")
+                            .foregroundColor(.primary)
+                    }
+                }
+            }
+            Link(destination: URL(string: "https://craftwaykitchen.com/")!) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .frame(width: 300, height: 50, alignment: .center)
+                        .foregroundColor(.yellow)
+                    HStack {
+                        Image(systemName: "globe")
+                            .foregroundColor(.primary)
+                        Text("craftwaykitchen.com")
+                            .foregroundColor(.primary)
+                    }
+                }
+            }
+            Rectangle()
+                .frame(height: 30, alignment: .center)
+                .opacity(0)
         }
     }
 }
